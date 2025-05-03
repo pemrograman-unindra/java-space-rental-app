@@ -1,7 +1,7 @@
-package unindra.ui;
+package unindra.room.ui;
 
-import unindra.model.Room;
-import unindra.dao.RoomDAO;
+import unindra.room.dao.RoomDAO;
+import unindra.room.model.Room;
 
 public class RoomForm extends javax.swing.JFrame {
 
@@ -34,7 +34,7 @@ public class RoomForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        background1 = new unindra.ui.Background();
+        background1 = new unindra.core.ui.Background();
         lCode = new javax.swing.JLabel();
         lName = new javax.swing.JLabel();
         lArea = new javax.swing.JLabel();
@@ -238,7 +238,7 @@ public class RoomForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bCancel;
     private javax.swing.JButton bSave;
-    private unindra.ui.Background background1;
+    private unindra.core.ui.Background background1;
     private javax.swing.JTextField fArea;
     private javax.swing.JTextField fCapacity;
     private javax.swing.JTextField fCode;

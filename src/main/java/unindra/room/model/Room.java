@@ -1,4 +1,4 @@
-package unindra.model;
+package unindra.room.model;
 
 public class Room {
     private int id;

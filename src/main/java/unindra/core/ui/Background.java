@@ -1,4 +1,4 @@
-package unindra.ui;
+package unindra.core.ui;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;

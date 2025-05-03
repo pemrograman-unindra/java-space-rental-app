@@ -1,4 +1,4 @@
-package unindra.db;
+package unindra.core.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

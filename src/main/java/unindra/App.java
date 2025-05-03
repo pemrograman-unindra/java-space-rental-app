@@ -1,10 +1,10 @@
 package unindra;
 
-import unindra.db.DBConnection;
-import unindra.db.DBMigration;
-import unindra.ui.RoomList;
+import unindra.core.db.DBConnection;
+import unindra.core.db.DBMigration;
+import unindra.room.ui.RoomList;
 
-public class SpaceRentalApp {
+public class App {
 
     public static void main(String[] args) {
         try {

@@ -2,12 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package unindra.ui;
+package unindra.room.ui;
+
+import unindra.room.dao.RoomDAO;
+import unindra.room.model.Room;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import unindra.dao.RoomDAO;
-import unindra.model.Room;
 import java.util.List;
 
 /**
@@ -56,7 +57,7 @@ public class RoomList extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        background1 = new unindra.ui.Background();
+        background1 = new unindra.core.ui.Background();
         jScrollPane1 = new javax.swing.JScrollPane();
         roomTable = new javax.swing.JTable();
         bCreate = new javax.swing.JButton();
@@ -280,7 +281,7 @@ public class RoomList extends javax.swing.JFrame {
     private javax.swing.JButton bEdit;
     private javax.swing.JButton bExit;
     private javax.swing.JButton bSearch;
-    private unindra.ui.Background background1;
+    private unindra.core.ui.Background background1;
     private javax.swing.JTextField fSearch;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable roomTable;

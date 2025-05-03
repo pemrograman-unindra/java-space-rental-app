@@ -1,7 +1,7 @@
-package unindra.dao;
+package unindra.room.dao;
 
-import unindra.model.Room;
-import unindra.db.DBConnection;
+import unindra.core.db.DBConnection;
+import unindra.room.model.Room;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

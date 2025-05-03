@@ -33,7 +33,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="unindra.ui.Background" name="background1">
+    <Container class="unindra.core.ui.Background" name="background1">
 
       <Layout>
         <DimensionLayout dim="0">
