@@ -21,6 +21,8 @@ public class RoomList extends javax.swing.JFrame {
      */
     public RoomList() {
         initComponents();
+        pack();
+        setLocationRelativeTo(null);
         loadRoomData();
     }
 

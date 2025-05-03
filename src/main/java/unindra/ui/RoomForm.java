@@ -11,6 +11,8 @@ public class RoomForm extends javax.swing.JFrame {
 
     public RoomForm(RoomList roomList, Room room) {
         initComponents();
+        pack();
+        setLocationRelativeTo(null);
         this.roomList = roomList;
         if (room != null) {
             selectedRoom = room;
