@@ -38,7 +38,7 @@ public class RoomList extends javax.swing.JFrame {
         }
         roomTable.setModel(model);
     }
-    
+
     private void reset() {
         bEdit.setVisible(false);
         bDelete.setVisible(false);
