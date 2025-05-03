@@ -3,27 +3,59 @@ package unindra.db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
-import java.io.InputStream;
-import java.io.IOException;
+
+import io.github.cdimascio.dotenv.Dotenv;
+import java.io.File;
 
 public class DBConnection {
-    public static Connection getConnection() throws SQLException {
-        Properties properties = new Properties();
-        try (InputStream input = DBConnection.class.getClassLoader().getResourceAsStream("db.properties")) {
-            if (input == null) {
-                throw new IOException("db.properties file not found.");
-            }
-            properties.load(input);
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new SQLException("Failed to load database configuration.", e);
+    private static Connection conn;
+
+    private static String getEnv(Dotenv dotenv, String key, String defaultValue) {
+        if (dotenv != null) {
+            String value = dotenv.get(key);
+            if (value != null) return value;
         }
-
-        String url = properties.getProperty("db.url", "jdbc:mysql://localhost:3306/space_rental");
-        String user = properties.getProperty("db.username", "root");
-        String password = properties.getProperty("db.password", "");
-
-        return DriverManager.getConnection(url, user, password);
+        String envValue = System.getenv(key);
+        return envValue != null ? envValue : defaultValue;
     }
+
+    public static void openConnection() throws SQLException {
+        Dotenv dotenv = null;
+        try {
+            File envFile = new File(".env");
+            if (envFile.exists()) {
+                dotenv = Dotenv.configure()
+                        .directory(".")
+                        .ignoreIfMalformed()
+                        .ignoreIfMissing()
+                        .load();
+            }
+        } catch (Exception e) {
+            // Tidak perlu lempar error, cukup abaikan dan pakai default
+        }
+        String dbHost = getEnv(dotenv, "DB_HOST", "localhost");
+        String dbPort = getEnv(dotenv, "DB_PORT", "3306");
+        String dbName = getEnv(dotenv, "DB_NAME", "space_rental");
+        String dbUser = getEnv(dotenv, "DB_USERNAME", "root");
+        String dbPassword = getEnv(dotenv, "DB_PASSWORD", "");
+        conn = DriverManager.getConnection("jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName, dbUser, dbPassword);
+    }
+
+    public static Connection getConnection() throws SQLException {
+        if (conn == null || conn.isClosed()) {
+            openConnection();
+        }
+        return conn;
+    }
+
+    public static void closeConnection() {
+        try {
+            if (conn != null && !conn.isClosed()) {
+                conn.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

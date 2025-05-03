@@ -11,7 +11,11 @@ Aplikasi desktop sederhana berbasis java
 	```bash
 	mvn clean install
 	```
-4. Jalankan aplikasi
+4. Sesuaikan file `.env` sesuai dengan kredensial basis data kamu
+	```bash
+	cp .env-example .env && vi .env
+	```
+5. Jalankan aplikasi
 	```bash
 	java -jar target/SpaceRentalApp-1.0.jar
 	```
